@@ -18,4 +18,10 @@ docker-compose up -d
 open http://localhost:1337
 ```
 
+## kong
+
+|Name|Kong Admin URL|
+|---|---|
+|適当|http://kong:8001|
+
 
