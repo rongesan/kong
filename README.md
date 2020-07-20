@@ -1,8 +1,6 @@
 ## init
 
 ```zsh
-docker-compose run -d kong-db
-
 docker-compose run kong kong migrations bootstrap
 
 docker-compose down
