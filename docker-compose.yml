@@ -33,14 +33,16 @@ services:
       - "8443:8443"
       - "8001:8001"
       - "8444:8444"
-    depends_on:
-      - "kong-db"
     restart: "on-failure:3"
   konga:
-    image: pantsel/konga
+    build: ./konga
+    container_name: konga
+    volumes:
+      - ./konga/user_seed.js:/app/user_seed.js:ro
     ports:
       - 1337:1337
     links:
       - kong
     environment:
       - NODE_ENV=development
+      - KONGA_SEED_USER_DATA_SOURCE_FILE=/app/user_seed.js
